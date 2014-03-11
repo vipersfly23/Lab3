@@ -3,7 +3,7 @@ Lab3
 
 ECE 281 Lab 3.
 #Pre Lab Requirements:
-  * Schematic
+	* Schematic
 	* All vhdl files available (with comments and updated headers)	
 
 # Pre Lab:
