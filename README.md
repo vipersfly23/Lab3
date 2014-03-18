@@ -60,6 +60,7 @@ begin
 				
 				
 ######Reason: 
+
 This code combines the flip flop and the process which stores the "next stage case." This is not in accordance to what we learned in class. We learned that  the code should be broken into three parts, the flip/flop, process next stage, and the output logic. By combining these steps, it makes it much harder to analyze and also understand.
 
 
@@ -83,9 +84,24 @@ floor <= "0001" when (floor_state = floor1      ) else
 			
 			"0001";
 
-######Reason: The reason this is a good code is because it is a seperate component as learned in class. As mentioned earlier the first two components, the flip flop and the process next stage is combined, but the output logic remains independent, thus is according to the teaching in class
+######Reason: 
+
+The reason this is a good code is because it is a seperate component as learned in class. As mentioned earlier the first two components, the flip flop and the process next stage is combined, but the output logic remains independent, thus is according to the teaching in class
 =============
 
+#Functionality:
+
+Required Functionality:
+*	Demonstrated Basic Elevator Controller *[COMPLETE]*
+*	Demonstrate Mealy Elevator Controller *[COMPLETE]*
+
+B Functionality:
+*	Demonstrated More Floors *[COMPLETE]*
+*	Demonstrated Change Inputs *[COMPLETE]*
+
+A Functionality:
+*	Demonstrated Moving Lights *[COMPLETE]*
+*	Demonstrated Multiple Elevators *[INCOMPLETE]*
 
 
 
