@@ -33,6 +33,7 @@ end Nexys2_top_shell;
 
 architecture Behavioral of Nexys2_top_shell is
 
+
 ---------------------------------------------------------------------------------------
 --This component converts a nibble to a value that can be viewed on a 7-segment display
 --Similar in function to a 7448 BCD to 7-seg decoder
@@ -65,6 +66,7 @@ architecture Behavioral of Nexys2_top_shell is
 		sseg : OUT std_logic_vector(7 downto 0)
 		);
 	END COMPONENT;
+	
 
 -------------------------------------------------------------------------------------
 --This component divides the system clock into a bunch of slower clock speeds
@@ -91,13 +93,31 @@ signal ClockBus_sig : STD_LOGIC_VECTOR (26 downto 0);
 --------------------------------------------------------------------------------------
 --Insert your design's component declaration below	
 --------------------------------------------------------------------------------------
+	Component MooreElevatorController_Shell
+	Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           stop : in  STD_LOGIC;
+           up_down : in  STD_LOGIC_VECTOR(2 downto 0);
+			
+           floor : out  STD_LOGIC_VECTOR (3 downto 0));
+	END COMPONENT;
 
-
+component ElevatorController
+Port ( clk : in  STD_LOGIC;
+up_down : in  STD_LOGIC_VECTOR (2 downto 0);
+           floor : in  STD_LOGIC_VECTOR (3 downto 0);
+           floor1 : in  STD_LOGIC_VECTOR (3 downto 0);
+           out1 : out  STD_LOGIC_VECTOR (2 downto 0);
+           out2 : out  STD_LOGIC_VECTOR (2 downto 0));
+	end component;
 
 --------------------------------------------------------------------------------------
 --Insert any required signal declarations below
 --------------------------------------------------------------------------------------
-
+signal floor : STD_LOGIC_Vector(3 downto 0);
+signal floor1: STD_LOGIC_Vector(3 downto 0);
+signal out1 : STD_LOGIC_Vector(2 downto 0);
+signal out2: STD_LOGIC_Vector(2 downto 0);
 
 
 begin
@@ -125,10 +145,10 @@ LED <= CLOCKBUS_SIG(26 DOWNTO 19);
 --		  Example: if you are not using 7-seg display #3 set nibble3 to "0000"
 --------------------------------------------------------------------------------------
 
-nibble0 <= 
-nibble1 <= 
-nibble2 <= 
-nibble3 <= 
+nibble0 <= floor;
+nibble1 <= "0000";
+nibble2 <= floor1;
+nibble3 <= "0000";
 
 --This code converts a nibble to a value that can be displayed on 7-segment display #0
 	sseg0: nibble_to_sseg PORT MAP(
@@ -171,7 +191,33 @@ nibble3 <=
 -----------------------------------------------------------------------------
 --Instantiate the design you with to implement below and start wiring it up!:
 -----------------------------------------------------------------------------
-
+MooreElevatorController: MooreElevatorController_Shell PORT MAP(
+ clk => ClockBus_sig(25),
+           reset => switch(0),
+           stop => btn(0),
+           up_down=>out1,
+	
+           floor => floor
+			 	 
+			  ) ;
+			  MooreElevatorController1:MooreElevatorController_Shell PORT MAP(
+ clk => ClockBus_sig(25),
+           reset => switch(0),
+           stop => btn(0),
+           up_down=> out2,
+           floor => floor1
+			 	 
+			  ) ;
+			  
+Controller: ElevatorController Port MAP(
+clk=> ClockBus_sig(25),
+up_down(0)=> switch(1),
+up_down(1)=> switch(2),
+up_down(2)=> switch(3),
+floor =>floor,
+floor1 => floor1,
+out1 => out1,
+out2 =>out2);
 
 end Behavioral;
 
