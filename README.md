@@ -124,4 +124,4 @@ Required VHDL Files:
 
 ## Documentation:
 
-No help received.
+i spoke with C3C Terragnoli about how to implement the changing light. Captain silva also guided me with the changing lights.
