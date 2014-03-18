@@ -87,6 +87,7 @@ floor <= "0001" when (floor_state = floor1      ) else
 ######Reason: 
 
 The reason this is a good code is because it is a seperate component as learned in class. As mentioned earlier the first two components, the flip flop and the process next stage is combined, but the output logic remains independent, thus is according to the teaching in class
+
 =============
 
 #Functionality:
