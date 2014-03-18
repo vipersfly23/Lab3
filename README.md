@@ -63,6 +63,28 @@ begin
 This code combines the flip flop and the process which stores the "next stage case." This is not in accordance to what we learned in class. We learned that  the code should be broken into three parts, the flip/flop, process next stage, and the output logic. By combining these steps, it makes it much harder to analyze and also understand.
 
 
+#Critique [GOOD CODE]
+====
+-- Here you define your output logic. Finish the statements below
+
+floor <= "0001" when (floor_state = floor1      ) else
+
+			"0010" when (  floor_state = floor2  ) else
+			
+			"0011" when (   floor_state = floor3) else
+			
+			"0100" when (     floor_state = floor4  ) else
+			
+			"0101" when (     floor_state = floor5  ) else
+			
+			"0110" when (     floor_state = floor6  ) else
+			
+			"0111" when (     floor_state = floor7  ) else
+			
+			"0001";
+
+######Reason: The reason this is a good code is because it is a seperate component as learned in class. As mentioned earlier the first two components, the flip flop and the process next stage is combined, but the output logic remains independent, thus is according to the teaching in class
+=============
 
 
 
