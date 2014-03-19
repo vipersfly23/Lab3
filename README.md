@@ -237,7 +237,8 @@ Required Functionality:
 *	Demonstrate Mealy Elevator Controller *[COMPLETE]*
 
 B Functionality:
-*	Demonstrated More Floors *[COMPLETE]*
+*	Demonstrated More Floors *[COMPLETEd INCORRRECTLY]*
+	*	The moore elevator logic was incorrectly implemented thus, the floor doesn't increment correctly.
 *	Demonstrated Change Inputs *[COMPLETE]*
 
 A Functionality:
