@@ -9,11 +9,11 @@ ECE 281 Lab 3.
 
 #Critique [Bad Code]
 =======
- --This line will set up a process that is sensitive to the clock
+ 	--This line will set up a process that is sensitive to the clock
 
-floor_state_machine: process(clk)
+	floor_state_machine: process(clk)
 
-begin
+	begin
 
 	--clk'event and clk='1' is VHDL-speak for a rising edge
 	
@@ -66,9 +66,9 @@ begin
 
 #Critique [GOOD CODE]
 ====
--- Here you define your output logic. Finish the statements below
+			-- Here you define your output logic. Finish the statements below
 
-floor <= "0001" when (floor_state = floor1      ) else
+			floor <= "0001" when (floor_state = floor1      ) else
 
 			"0010" when (  floor_state = floor2  ) else
 			
