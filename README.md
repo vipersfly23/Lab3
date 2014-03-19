@@ -9,7 +9,7 @@ ECE 281 Lab 3.
 
 #Critique [Bad Code]
 =======
-'''-This line will set up a process that is sensitive to the clock
+''' -This line will set up a process that is sensitive to the clock
 
 floor_state_machine: process(clk)
 
@@ -56,12 +56,12 @@ begin
 					
 				--when our current state is floor2
 				
-				when floor2 => '''
+			'''	when floor2 => 
 				
 				
 ######Reason: 
 
-This code combines the flip flop and the process which stores the "next stage case." This is not in accordance to what we learned in class. We learned that  the code should be broken into three parts, the flip/flop, process next stage, and the output logic. By combining these steps, it makes it much harder to analyze and also understand.
+'''This code combines the flip flop and the process which stores the "next stage case." This is not in accordance to what we learned in class. We learned that  the code should be broken into three parts, the flip/flop, process next stage, and the output logic. By combining these steps, it makes it much harder to analyze and also understand. '''
 
 
 #Critique [GOOD CODE]
