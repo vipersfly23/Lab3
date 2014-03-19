@@ -9,7 +9,7 @@ ECE 281 Lab 3.
 
 #Critique [Bad Code]
 =======
-''' -This line will set up a process that is sensitive to the clock
+ --This line will set up a process that is sensitive to the clock
 
 floor_state_machine: process(clk)
 
@@ -56,7 +56,7 @@ begin
 					
 				--when our current state is floor2
 				
-			'''	when floor2 => 
+		when floor2 => 
 				
 				
 ######Reason: 
